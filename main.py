@@ -1,4 +1,5 @@
-from typing import Dict
+from dataclasses import dataclass
+from typing import Dict, List
 import pandas as pd
 from itertools import combinations
 import json
@@ -7,55 +8,68 @@ from model import Champion, Trait
 from utils import parse_traits, parse_champions, filter_by_cost
 
 
+@dataclass
+class Combination:
+    champions: List[Champion]
+    activated_traits: List[str]
+    ranking: int
+
+
 def main():
-    champions = parse_champions('data/champions.json')
-    traits = parse_traits('data/origins.json', 'data/classes.json')
+    # Some constants
+    PATH_TO_CHAMPIONS = 'data/champions.json'
+    PATH_TO_ORIGINS = 'data/origins.json'
+    PATH_TO_CLASSES = 'data/classes.json'
+    COST = 2
+    NB_UNITS = 4
 
-    cost = 10
-    nb_units = 4
+    # Read data
+    champions = parse_champions(PATH_TO_CHAMPIONS)
+    traits = parse_traits(PATH_TO_ORIGINS, PATH_TO_CLASSES)
 
-    champions = filter_by_cost(champions, cost)
-    print(f'{len(champions)} units with cost <= {cost}')
+    # Filter champions by cost
+    champions = filter_by_cost(champions, COST)
+    print(f'{len(champions)} units with cost <= {COST}')
 
-    champions_combinations = list(combinations(champions.values(), nb_units))
-    print(f'{len(champions_combinations)} combinations of {nb_units} units')
+    # Get all possible combinations of champions
+    champions_combinations: List[Champion] = list(
+        combinations(champions.values(), NB_UNITS))
+    print(f'{len(champions_combinations)} combinations of {NB_UNITS} units')
 
-    all_combinations = {}
-    for combination in champions_combinations:
-        # For each champion in the combination, increase the trait by 1
-        traits_count = {}
-        for champion in combination:
-            for trait_name in champion.traits:
-                if not trait_name in traits_count:
-                    traits_count[trait_name] = 0
-                traits_count[trait_name] += 1
+    # Put that into our dataclass
+    all_combinations = [Combination(champions, [], 0)
+                        for champions in champions_combinations]
 
-        # For each trait, find what level it is
-        total_levels = 0
-        for trait_name, count in traits_count.items():
-            trait = traits[trait_name]
-            level = trait.get_current_level(count)
-            total_levels += level
+    for i, combination in enumerate(all_combinations):
+        # Count each occurence of each trait among the champions
+        trait_counts: Dict[str, int] = {}
+        for champion in combination.champions:
+            for trait in champion.traits:
+                if trait not in trait_counts:
+                    trait_counts[trait] = 0
+                trait_counts[trait] += 1
 
-        names = [champion.name for champion in combination]
-        # print(f'{total_levels} levels for combination {names}')
+        # Now find which traits are activated (count > tier threshold)
+        combination.activated_traits = [
+            trait for trait, count in trait_counts.items()
+            if traits[trait].get_current_tier(count) > 0]
 
-        if total_levels not in all_combinations:
-            all_combinations[total_levels] = []
+        for trait, count in trait_counts.items():
+            tier_idx = traits[trait].get_current_tier(count)
+            if tier_idx > 0:
+                combination.ranking += traits[trait].tiers[tier_idx - 1]
 
-        all_combinations[total_levels].append(names)
+    # Sort by ranking
+    all_combinations.sort(key=lambda c: c.ranking, reverse=True)
 
-    # Get the highest level combination
-    max_level = max(all_combinations.keys())
-    print(f'Highest level combination: {max_level}')
-    for combination in all_combinations[max_level]:
-        print(combination)
+    # Get the top 10
+    top_10 = all_combinations[:100]
 
-    # Same for the level below
-    sub_level = max_level - 1
-    print(f'Sub level combination: {sub_level}')
-    for combination in all_combinations[sub_level]:
-        print(combination)
+    # Print ranking, names and traits
+    for combination in top_10:
+        names = ' '.join([champion.name for champion in combination.champions])
+        traits = ' '.join([trait for trait in combination.activated_traits])
+        print(f'{combination.ranking}. {names} - ({traits})')
 
 
 if __name__ == "__main__":

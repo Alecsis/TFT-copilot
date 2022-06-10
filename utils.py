@@ -24,14 +24,14 @@ def _parse_trait(trait_data: Dict) -> 'Trait':
     """ Parse a trait from a dict coming from the json file """
     name = trait_data['name']
 
-    # The levels are contained in the 'bonus' key
-    levels = []
+    # The tiers are contained in the 'bonus' key
+    tiers = []
     for bonus in trait_data['bonus']:
-        levels.append(int(bonus["count"]))
+        tiers.append(int(bonus["count"]))
 
     return Trait(
         name=name,
-        levels=levels
+        tiers=tiers
     )
 
 
