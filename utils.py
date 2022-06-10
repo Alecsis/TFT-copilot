@@ -60,12 +60,12 @@ def parse_traits(path_to_traits: str, path_to_classes: str) -> Dict[str, Trait]:
     return result
 
 
-def parse_champions() -> Dict[str, Champion]:
+def parse_champions(path_to_champions: str) -> Dict[str, Champion]:
     """ Read champions from file and return dict[champion.name] = champion """
     result = {}
 
     # Read champions
-    with open('data/champions.json') as f:
+    with open(path_to_champions) as f:
         champions_raw = json.load(f)
 
     # Parse champions

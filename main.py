@@ -8,7 +8,7 @@ from utils import parse_traits, parse_champions, filter_by_cost
 
 
 def main():
-    champions = parse_champions()
+    champions = parse_champions('data/champions.json')
     traits = parse_traits('data/origins.json', 'data/classes.json')
 
     cost = 10
