@@ -6,54 +6,37 @@ import json
 
 @dataclass
 class Champion:
+    """ A champion in the game. It cost golds to buy, and has traits """
     name: str
-    # id: int
-    types: List[str]
+    traits: List[str]
     cost: int
-
-    def from_dict(champion_data: Dict) -> 'Champion':
-        name = champion_data['name']
-        # id = int(champion_data['id'])
-        types = champion_data['type']
-        types.extend(champion_data['origin'])
-        cost = int(champion_data['cost'])
-
-        return Champion(
-            name=name,
-            # id=id,
-            types=types,
-            cost=cost
-        )
 
 
 @dataclass
-class Type:
+class Trait:
+    """ A trait of a champion. It has a name and a list of tiers, which is the number of champions needed to get the trait. """
     name: str
-    levels: List[int]
+    tiers: List[int]
 
-    def get_current_level(self, count: int) -> int:
-        for i, level in enumerate(self.levels):
-            if level > count:
+    def get_current_tier(self, count: int) -> int:
+        """ Get the current tier of the trait for a given number of champions that share the trait"""
+        for i, tier in enumerate(self.tiers):
+            if tier > count:
                 return i
-        return len(self.levels)
-
-    def from_dict(type_data: Dict) -> 'Type':
-        name = type_data['name']
-        levels = []
-        for bonus in type_data['bonus']:
-            levels.append(int(bonus["count"]))
-        return Type(
-            name=name,
-            levels=levels
-        )
+        return len(self.tiers)
 
 
 def tests():
-    type = Type('test', [2, 4, 6])
-    print(type.get_current_level(1))
-    print(type.get_current_level(3))
-    print(type.get_current_level(5))
-    print(type.get_current_level(7))
+    trait = Trait('test', [2, 4, 6])
+    assert trait.get_current_tier(1) == 0
+    assert trait.get_current_tier(2) == 1
+    assert trait.get_current_tier(3) == 1
+    assert trait.get_current_tier(4) == 2
+    assert trait.get_current_tier(5) == 2
+    assert trait.get_current_tier(6) == 3
+    assert trait.get_current_tier(7) == 3
+    assert trait.get_current_tier(8) == 3
+    print('Tests passed')
 
 
 if __name__ == '__main__':
