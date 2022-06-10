@@ -1,0 +1,377 @@
+[
+    {
+        "name": "Assassin",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 4,
+        "effect": "Innate: When combat starts, Assassins leap to the enemy backline.\r\n\r\nAssassins' Abilities can critically strike and they gain bonus Critical Strike Chance and bonus Critical Strike Damage.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "15% Crit Chance & 20% Crit Damage"
+            },
+            {
+                "count": 4,
+                "value": "30% Crit Chance & 40% Crit Damage"
+            },
+            {
+                "count": 6,
+                "value": "45% Crit Chance & 60% Crit Damage"
+            }
+        ]
+    },
+    {
+        "name": "Bard",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 1,
+        "bonus": [
+            {
+                "count": 1,
+                "value": "Allies that survive player combat have a 2% chance to create a Doot. Bard always creates a Doot when dancing.\n\nEach Doot you collect increases your Shop odds for higher-tier champions by 1%."
+            }
+        ]
+    },
+    {
+        "name": "Bruiser",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 2,
+        "effect": "Your team gains bonus maximum Health. Bruisers gain double this bonus.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "200 Health"
+            },
+            {
+                "count": 4,
+                "value": "350 Health"
+            },
+            {
+                "count": 6,
+                "value": "500 Health"
+            },
+            {
+                "count": 8,
+                "value": "800 Health"
+            }
+        ]
+    },
+    {
+        "name": "Cannoneer",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 3,
+        "effect": "Every 5th attack fires a cannon shot that explodes for physical damage around the target.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "150% Attack Damage"
+            },
+            {
+                "count": 3,
+                "value": "175% Attack Damage"
+            },
+            {
+                "count": 4,
+                "value": "225% Attack Damage"
+            },
+            {
+                "count": 5,
+                "value": "275% Attack Damage"
+            }
+        ]
+    },
+    {
+        "name": "Cavalier",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 5,
+        "effect": "Innate: Charge quickly towards their target whenever they move.\n\nCavaliers gain Armor and Magic Resist. At the start of combat and after each charge, gain double the amount for 4 seconds.",
+        "bonus": [
+            {
+                "count": 3,
+                "value": "60 Armor, 60 Magic Resist"
+            },
+            {
+                "count": 6,
+                "value": "100 Armor, 100 Magic Resist"
+            }
+        ]
+    },
+    {
+        "name": "Dragon",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 1,
+        "bonus": [
+            {
+                "count": 1,
+                "value": "Dragons provide +3 to their origin trait, but require 2 team slots. They also gain 750 bonus Health.\n\nThis trait is active with exactly 1 Dragon champion."
+            }
+        ]
+    },
+    {
+        "name": "Dragonmancer",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 3,
+        "effect": "Use the Dragonmancer Blessing item to choose a Hero. The Hero gains massively increased Health and Ability Power, which increases by 10% per star level of your Dragonmancers.",
+        "bonus": [
+            {
+                "count": 3,
+                "value": "450 Health, +20% Ability Power"
+            },
+            {
+                "count": 6,
+                "value": "1350 Health, +60% Ability Power"
+            },
+            {
+                "count": 9,
+                "value": "2250 Health, +100% Ability Power"
+            }
+        ]
+    },
+    {
+        "name": "Evoker",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 2,
+        "effect": "Evokers gain Mana whenever an ally or enemy casts an Ability.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "3 Mana"
+            },
+            {
+                "count": 4,
+                "value": "6 Mana"
+            },
+            {
+                "count": 6,
+                "value": "10 Mana"
+            }
+        ]
+    },
+    {
+        "name": "Guardian",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 4,
+        "effect": "Once per combat at 50% Health, Guardians shield themselves and their closest ally for a percent of their maximum Health. Shields stack!",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "35% of max health shield"
+            },
+            {
+                "count": 4,
+                "value": "50% of max health shield"
+            },
+            {
+                "count": 6,
+                "value": "65% of max health shield"
+            }
+        ]
+    },
+    {
+        "name": "Legend",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 4,
+        "bonus": [
+            {
+                "count": 3,
+                "value": "Each combat: An adjacent ally sacrifices their life to the Legend, which gains 100% of their Health, Armor, and Magic Resistance, plus 40% of their Ability Power."
+            }
+        ]
+    },
+    {
+        "name": "Mage",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 1,
+        "effect": "Mages cast twice and have modified total Ability Power.",
+        "bonus": [
+            {
+                "count": 3,
+                "value": "75% Ability Power"
+            },
+            {
+                "count": 5,
+                "value": "100% Ability Power"
+            },
+            {
+                "count": 7,
+                "value": "125% Ability Power"
+            },
+            {
+                "count": 9,
+                "value": "150% Ability Power"
+            }
+        ]
+    },
+    {
+        "name": "Mystic",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 2,
+        "effect": "Your team gains Magic Resist.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "50 Magic Resist"
+            },
+            {
+                "count": 3,
+                "value": "100 Magic Resist"
+            },
+            {
+                "count": 4,
+                "value": "175 Magic Resist"
+            },
+            {
+                "count": 5,
+                "value": "300 Magic Resist"
+            }
+        ]
+    },
+    {
+        "name": "Shapeshifter",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 3,
+        "effect": "Transforming grants bonus maximum Health.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "50% maximum Health"
+            },
+            {
+                "count": 4,
+                "value": "100% maximum Health"
+            },
+            {
+                "count": 6,
+                "value": "150% maximum Health"
+            }
+        ]
+    },
+    {
+        "name": "Spell-Thief",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 1,
+        "bonus": [
+            {
+                "count": 1,
+                "value": "Zoe nabs a new Ability after each cast and at the start of every round."
+            }
+        ]
+    },
+    {
+        "name": "Starcaller",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 1,
+        "bonus": [
+            {
+                "count": 1,
+                "value": "The first Starcaller to cast their Ability during player combat heals you for (2/3/75), depending on their star level. Excess healing disintegrates an enemy champion."
+            }
+        ]
+    },
+    {
+        "name": "Swiftshot",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 2,
+        "effect": "Innate: gain 2 hex Attack Range.\n\nSwhiftshots gain Attack Speed for each hex between themselves and their target.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "12% Attack Speed"
+            },
+            {
+                "count": 4,
+                "value": "25% Attack Speed"
+            },
+            {
+                "count": 6,
+                "value": "40% Attack Speed"
+            }
+        ]
+    },
+    {
+        "name": "Warrior",
+        "set": [
+            7
+        ],
+        "tier_up": false,
+        "tier_down": false,
+        "tier": 2,
+        "effect": "Warrior attacks have a 33% chance to increase the damage of their next attack.",
+        "bonus": [
+            {
+                "count": 2,
+                "value": "120% damage"
+            },
+            {
+                "count": 4,
+                "value": "200% damage"
+            },
+            {
+                "count": 6,
+                "value": "300% damage"
+            }
+        ]
+    }
+]
